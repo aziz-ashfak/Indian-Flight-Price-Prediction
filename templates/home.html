@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Flight Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Indian Flight Price Prediction</h1>
+            <p>Predict the price of your flight instantly!</p>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <form action="/predict" method="POST" class="form">
+                <h2>Enter Flight Details</h2>
+                <div class="form-group">
+                    <label for="airline">Airline:</label>
+                    <select id="airline" name="airline" required>
+                        <option value="AirAsia">AirAsia</option>
+                        <option value="Air_India">Air_India</option>
+                        <option value="GO_FIRST">GO_FIRST</option>
+                        <option value="Indigo">Indigo</option>
+                        <option value="SpiceJet">SpiceJet</option>
+                        <option value="Vistara">Vistara</option>
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="flight">Flight Number:</label>
+                    <input  id="flight" name="flight" required>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="source_city">Source City:</label>
+                    <select id="source_city" name="source_city" required>   
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Mumbai">Mumbai</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="departure_time">Departure time:</label>
+                    <select id="departure_time" name="departure_time" required>
+                        <option value="Early_Morning">Early Morning</option>
+                        <option value="Morning">Morning</option>
+                        <option value="Afternoon">Afternoon</option>
+                        <option value="Evening">Evening</option>
+                        <option value="Night">Night</option>
+                        <option value="Late_Night">Late Night</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="stops">Stops:</label>
+                    <select id="stops" name="stops" required>
+                        <option value="zero">Non-stop</option> zero', 'one', 'two_or_more
+                        <option value="one">One-stop</option>
+                        <option value="two_or_more">Two-or-more</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="arrival_time">Arrival time:</label>
+                    <select id="arrival_time" name="arrival_time" required>
+                        <option value="Early_Morning">Early Morning</option>
+                        <option value="Morning">Morning</option>
+                        <option value="Afternoon">Afternoon</option>
+                        <option value="Evening">Evening</option>
+                        <option value="Night">Night</option>
+                        <option value="Late_Night">Late Night</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="destination_city">Destination City:</label>
+                     <select id="destination_city" name="destination_city" required>   
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Mumbai">Mumbai</option>
+                    </select>
+                </div>
+               
+                <div class="form-group">
+                    <label for="class">Class:</label>
+                    <select id="class" name="class" required>
+                        <option value="Economy">Economy</option> 
+                        <option value="Business">Business</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Flight Duration (hours):</label>
+                    <input type="number" id="duration" name="duration" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="days_left">Days Left to Departure:</label>
+                    <input type="number" id="days_left" name="days_left" step="any"  required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </form>
+        </div>
+<h3 align="center"> {{prediction_text}}</h3>
+<h2 align="center" color="blue"> Go safe and have a nice journey!!!✈️ </h2>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Flight Price Prediction. All Rights Reserved.<br>
+            <b> author : <a href="https://www.linkedin.com/in/aziz-ashfak-27353b262/">Aziz Ashfak</a></b><br>
+            <b>Gmail:</b> azizashfak@gmail.com
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
