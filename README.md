@@ -4,6 +4,9 @@ This project aims to find out the flight price by using different model. It cons
 
 ## Directory Structure
 ```
+├── .github
+   ├── workflows
+       ├── main.yml
 ├── Dataset
    ├── Clean_Dataset.csv           
 ├── ResultAnalysis  
@@ -36,7 +39,7 @@ This project aims to find out the flight price by using different model. It cons
    
 ├── static          
 ├── templates              
-├── .gitignore               ignored files
+├── .gitignore             
 ├── LICENSE                 
 ├── README.md               
 ├── app.py           
@@ -82,10 +85,26 @@ The various features of the cleaned dataset are explained below:
 **Days Left**: This is a derived characteristic that is calculated by subtracting the trip date by the booking date.
 
 **Price**: Target variable stores information of the ticket price.
-## model we use
 
-## Describe result
-In this project we use 80% data as trainset and  20% data as testset.In this project we use 
+## Describe the processes
+In this project we use 80% data as trainset and  20% data as testset.In this project we use  different preprocessing method:
+      **MinMaxScaler**: use for numeric columns
+      **OneHotEncoder**: use for categorical columns
+      **SimpleImputer**: use to detect nan value both for numeric and categorical cols
+## Model we use 
+   LinearRegression
+   RidgeRegression
+   RandomForestRegressior
+   AdaBoostRegressor
+   GradientBoostingRegressor
+   BaggingRegressor
+   XGBRegressor
+According to r2_score we choose our best model.
+In initial time our best model was RandomForestRegressior.It r2_score was 0.9978
+It was our best model model. But it was to much heavy. It was 824 MB file .After compressed it was 117 MB.Which cannot be store in github .
+
+The we  choose our second best model. The second beest model was BaggingRegressor.The r2_score was 9969288123254513.After compressed this model the file size is 17 MB.
+And the subtract of both this model is too small.
 
 ## kaggle notebook link
 ```bash 
@@ -99,20 +118,29 @@ https://www.kaggle.com/code/azizashfak/flight-price-prediction
    ```
 2. Navigate to the project directory:
    ```bash
-   cd <project-folder>
+   cd <Flight-Price-Prediction>
    ```
 3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-
+## Github action pipeline 
+``` bash 
+  ├── .github
+   ├── workflows
+       ├── main.yml
+```
+## use cloud servce 
+```bash 
+link : www.render.com
+```
 ## Usage
 Run the main application script:
 ```bash
 python app.py
 ```
 ## Use Indian-Flight-Prediction web-service link
-Run the main application script:
+
 ```bash
 https://indian-flight-price-prediction.onrender.com
 ```
@@ -122,6 +150,10 @@ If you would like to contribute, please fork the repository and submit a pull re
 ## License
 This project is licensed under the [LICENSE] file included in the repository.
 
-## Contact
-For any inquiries, please reach out to [your contact information].
+## Author
+
+👤 **Aziz Ashfak**  
+📧 Email: [azizashfak@gmail.com](mailto:azizashfak@gmail.com)  
+🔗 LinkedIn: [linkedin.com/in/aziz-ashfak](https://www.linkedin.com/in/aziz-ashfak-27353b262/)  
+🐙 GitHub: [github.com/AzizAshfak](https://github.com/AzizAshfak/)  
 
