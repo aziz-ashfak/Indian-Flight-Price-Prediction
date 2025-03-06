@@ -114,7 +114,7 @@ https://www.kaggle.com/code/azizashfak/flight-price-prediction
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <https://github.com/AzizAshfak/Indian-Flight-Price-Prediction.git>
+   git clone <https://github.com/aziz-ashfak/Indian-Flight-Price-Prediction.git>
    ```
 2. Navigate to the project directory:
    ```bash
