@@ -92,6 +92,7 @@ In this project we use 80% data as trainset and  20% data as testset.In this pro
       **OneHotEncoder**: use for categorical columns
       **SimpleImputer**: use to detect nan value both for numeric and categorical cols
 ## Model we use 
+
    LinearRegression
    RidgeRegression
    RandomForestRegressior
@@ -103,7 +104,7 @@ According to r2_score we choose our best model.
 In initial time our best model was RandomForestRegressior.It r2_score was 0.9978
 It was our best model model. But it was to much heavy. It was 824 MB file .After compressed it was 117 MB.Which cannot be store in github .
 
-The we  choose our second best model. The second beest model was BaggingRegressor.The r2_score was 9969288123254513.After compressed this model the file size is 17 MB.
+The we  choose our second best model. The second beest model was BaggingRegressor.The r2_score was 0.9969288123254513.After compressed this model the file size is 17 MB.
 And the subtract of both this model is too small.
 
 ## kaggle notebook link
