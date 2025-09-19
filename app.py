@@ -23,23 +23,7 @@ def predict_api():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# @app.route('/predict', methods=['POST'])
-# def predict():
-#     try:
-#         # Get JSON data from AJAX request
-#         data = request.get_json()
 
-#         if not data:
-#             return jsonify({'error': 'No input data provided'}), 400
-
-#         # Predict using your pipeline
-#         predicted_price = make_prediction(data)
-
-#         # Return JSON response
-#         return jsonify({'prediction': round(predicted_price, 2)})
-
-#     except Exception as e:
-#         return jsonify({'error': str(e)}), 500
 
 
 if __name__ == "__main__":
