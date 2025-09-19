@@ -92,6 +92,7 @@ In this project we use 80% data as trainset and  20% data as testset.In this pro
       **OneHotEncoder**: use for categorical columns
       **SimpleImputer**: use to detect nan value both for numeric and categorical cols
 ## Model we use 
+```
    LinearRegression
    RidgeRegression
    RandomForestRegressior
@@ -99,11 +100,12 @@ In this project we use 80% data as trainset and  20% data as testset.In this pro
    GradientBoostingRegressor
    BaggingRegressor
    XGBRegressor
+   ```
 According to r2_score we choose our best model.
 In initial time our best model was RandomForestRegressior.It r2_score was 0.9978
 It was our best model model. But it was to much heavy. It was 824 MB file .After compressed it was 117 MB.Which cannot be store in github .
 
-The we  choose our second best model. The second beest model was BaggingRegressor.The r2_score was 9969288123254513.After compressed this model the file size is 17 MB.
+The we  choose our second best model. The second beest model was BaggingRegressor.The r2_score was 0.9969288123254513.After compressed this model the file size is 17 MB.
 And the subtract of both this model is too small.
 
 ## kaggle notebook link
@@ -114,7 +116,7 @@ https://www.kaggle.com/code/azizashfak/flight-price-prediction
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <https://github.com/AzizAshfak/Indian-Flight-Price-Prediction.git>
+   git clone <https://github.com/aziz-ashfak/Indian-Flight-Price-Prediction.git>
    ```
 2. Navigate to the project directory:
    ```bash
@@ -154,6 +156,6 @@ This project is licensed under the [LICENSE] file included in the repository.
 
 👤 **Aziz Ashfak**  
 📧 Email: [azizashfak@gmail.com](mailto:azizashfak@gmail.com)  
-🔗 LinkedIn: [linkedin.com/in/aziz-ashfak](https://www.linkedin.com/in/aziz-ashfak-27353b262/)  
-🐙 GitHub: [github.com/AzizAshfak](https://github.com/AzizAshfak/)  
+🔗 LinkedIn: [linkedin.com/in/aziz-ashfak](https://www.linkedin.com/in/aziz-ashfak1/)  
+🐙 GitHub: [github.com/aziz-ashfak](https://github.com/aziz-ashfak/)  
 
