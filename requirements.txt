@@ -1,12 +1,12 @@
-pandas 
-numpy 
-matplotlib
-seaborn 
-plotly 
-scikit-learn 
-xgboost
-Flask 
-zstandard
-Gunicorn
-nbformat>=4.2.0 
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.9.2
+seaborn==0.13.2
+plotly==5.22.0
+scikit-learn==1.5.1
+xgboost==2.1.1
+Flask==3.0.3
+zstandard==0.23.0
+Gunicorn==22.0.0
+nbformat>=4.2.0
 # e .
