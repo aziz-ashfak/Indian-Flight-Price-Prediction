@@ -1,90 +1,235 @@
+:root {
+  --primary: #002147;         /* Deep navy for trust */
+  --secondary: #cfae78;       /* Champagne gold for elegance */
+  --background: #f4f6f9;      /* Soft neutral for calm */
+  --text: #2c2c2c;
+  --heading: #1a1a1a;
+  --font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --radius: 6px;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --transition: 0.3s ease;
+}
+
+/* ================================
+   Reset and Base
+================================ */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
+  font-family: var(--font-family);
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+  transition: background-color var(--transition), color var(--transition);
 }
 
+/* ================================
+   Header
+================================ */
 .header {
-    background: #007BFF;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+  background: var(--primary);
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  box-shadow: var(--shadow);
 }
 
 .header h1 {
-    font-size: 2.5em;
+  font-size: 3em;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .header p {
-    font-size: 1.2em;
-    margin-top: 10px;
+  font-size: 1.2em;
+  margin-top: 12px;
+  opacity: 0.85;
 }
 
+/* ================================
+   Main Container
+================================ */
 .main {
-    padding: 20px;
+  padding: 50px 20px;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
+/* ================================
+   Form Styling
+================================ */
 .form {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition);
+}
+
+.form:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .form h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  color: var(--heading);
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #555;
 }
 
-.form-group select, 
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 1em;
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.1);
+  outline: none;
+}
+
+/* ================================
+   Button
+================================ */
 .btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--secondary);
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
 }
 
 .btn:hover {
-    background: #0056b3;
+  background: #b89c6a;
+  transform: translateY(-2px);
 }
 
+/* ================================
+   Prediction Box
+================================ */
+.prediction-box {
+  background-color: #eaf4ff;
+  border: 2px solid #99c2ff;
+  padding: 25px;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  border-radius: var(--radius);
+  color: #004080;
+}
+
+/* ================================
+   Footer
+================================ */
 .footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #f4f4f4;
-    margin-top: 20px;
+  text-align: center;
+  padding: 30px 0;
+  background: #e0e0e0;
+  margin-top: 60px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* ================================
+   Responsive Design
+================================ */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.4em;
+  }
+
+  .form h2 {
+    font-size: 1.8em;
+  }
+
+  .btn {
+    font-size: 1em;
+  }
+
+  .main {
+    padding: 30px 15px;
+  }
+}
+
+/* ================================
+   Accessibility & Focus
+================================ */
+button:focus,
+input:focus,
+select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ================================
+   Subtle Animation
+================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header h1,
+.form {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Additional styles for advanced form features */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.form-group.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.prediction-box.hidden {
+  display: none;
 }

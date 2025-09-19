@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indian Flight Price Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
 </head>
 <body>
     <header class="header">
@@ -13,30 +14,33 @@
             <p>Predict the price of your flight instantly!</p>
         </div>
     </header>
+
     <main class="main">
         <div class="container">
-            <form action="/predict" method="POST" class="form">
+            <!-- Flight Form -->
+            <form id="flight-form" class="form">
                 <h2>Enter Flight Details</h2>
+
                 <div class="form-group">
                     <label for="airline">Airline:</label>
                     <select id="airline" name="airline" required>
                         <option value="AirAsia">AirAsia</option>
-                        <option value="Air_India">Air_India</option>
-                        <option value="GO_FIRST">GO_FIRST</option>
+                        <option value="Air_India">Air India</option>
+                        <option value="GO_FIRST">GO FIRST</option>
                         <option value="Indigo">Indigo</option>
                         <option value="SpiceJet">SpiceJet</option>
                         <option value="Vistara">Vistara</option>
-                        
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="flight">Flight Number:</label>
-                    <input  id="flight" name="flight" required>
-                    
+                    <input type="text" id="flight" name="flight" required>
                 </div>
+
                 <div class="form-group">
                     <label for="source_city">Source City:</label>
-                    <select id="source_city" name="source_city" required>   
+                    <select id="source_city" name="source_city" required>
                         <option value="Bangalore">Bangalore</option>
                         <option value="Chennai">Chennai</option>
                         <option value="Delhi">Delhi</option>
@@ -45,8 +49,9 @@
                         <option value="Mumbai">Mumbai</option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="departure_time">Departure time:</label>
+                    <label for="departure_time">Departure Time:</label>
                     <select id="departure_time" name="departure_time" required>
                         <option value="Early_Morning">Early Morning</option>
                         <option value="Morning">Morning</option>
@@ -56,16 +61,18 @@
                         <option value="Late_Night">Late Night</option>
                     </select>
                 </div>
-                 <div class="form-group">
+
+                <div class="form-group">
                     <label for="stops">Stops:</label>
                     <select id="stops" name="stops" required>
-                        <option value="zero">Non-stop</option> zero', 'one', 'two_or_more
+                        <option value="zero">Non-stop</option>
                         <option value="one">One-stop</option>
                         <option value="two_or_more">Two-or-more</option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="arrival_time">Arrival time:</label>
+                    <label for="arrival_time">Arrival Time:</label>
                     <select id="arrival_time" name="arrival_time" required>
                         <option value="Early_Morning">Early Morning</option>
                         <option value="Morning">Morning</option>
@@ -75,9 +82,10 @@
                         <option value="Late_Night">Late Night</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="destination_city">Destination City:</label>
-                     <select id="destination_city" name="destination_city" required>   
+                    <select id="destination_city" name="destination_city" required>
                         <option value="Bangalore">Bangalore</option>
                         <option value="Chennai">Chennai</option>
                         <option value="Delhi">Delhi</option>
@@ -86,36 +94,76 @@
                         <option value="Mumbai">Mumbai</option>
                     </select>
                 </div>
-               
+
                 <div class="form-group">
                     <label for="class">Class:</label>
                     <select id="class" name="class" required>
-                        <option value="Economy">Economy</option> 
+                        <option value="Economy">Economy</option>
                         <option value="Business">Business</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="duration">Flight Duration (hours):</label>
                     <input type="number" id="duration" name="duration" step="any" required>
                 </div>
+
                 <div class="form-group">
                     <label for="days_left">Days Left to Departure:</label>
-                    <input type="number" id="days_left" name="days_left" step="any"  required>
+                    <input type="number" id="days_left" name="days_left" step="any" required>
                 </div>
+
                 <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+                <!-- Prediction box displayed below button -->
+                <div id="prediction" class="prediction-box" style="display:none;"></div>
             </form>
+
         </div>
-<h3 align="center"> {{prediction_text}}</h3>
-<h2 align="center" color="blue"> Go safe and have a nice journey!!!✈️ </h2>
     </main>
+
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 Flight Price Prediction. All Rights Reserved.<br>
-            <b> author : <a href="https://www.linkedin.com/in/aziz-ashfak-27353b262/">Aziz Ashfak</a></b><br>
-            <b>Gmail:</b> azizashfak@gmail.com
-            </p>
+            <b>Author:</b> Aziz Ashfak</a><br>
+            <b>Author's Linkedin:</b> <a href="https://www.linkedin.com/in/aziz-ashfak1/">Linkedin/Aziz Ashfak</a><br>
+            <b>Github:</b> <a href="https://github.com/aziz-ashfak"> github.com/aziz-ashfak</a><br>
+            <b>Email:</b> azizashfak@gmail.com</p>
         </div>
     </footer>
 
+    <!-- JavaScript for AJAX form submission -->
+    <script>
+        const form = document.getElementById('flight-form');
+        const predictionBox = document.getElementById('prediction');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // prevent page reload
+
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => (data[key] = value));
+
+            // Show loading text
+            predictionBox.style.display = 'block';
+            predictionBox.textContent = 'Predicting...';
+
+            try {
+                const response = await fetch('/predict_api', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ data })
+                });
+
+                const result = await response.json();
+                predictionBox.textContent = `Prediction Price : ₹${result.predicted_price.toFixed(2)}`;
+            } catch (err) {
+                console.error('Error:', err);
+                predictionBox.textContent = 'Error predicting flight price. Please try again.';
+            }
+        });
+    </script>
+
 </body>
 </html>
+
