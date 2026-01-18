@@ -156,6 +156,6 @@ This project is licensed under the [LICENSE] file included in the repository.
 
 👤 **Aziz Ashfak**  
 📧 Email: [azizashfak@gmail.com](mailto:azizashfak@gmail.com)  
-🔗 LinkedIn: [linkedin.com/in/aziz-ashfak](https://www.linkedin.com/in/aziz-ashfak1/)  
+🔗 LinkedIn: [linkedin.com/in/aziz-ashfak](https://www.linkedin.com/in/aziz-ashfak-/)  
 🐙 GitHub: [github.com/aziz-ashfak](https://github.com/aziz-ashfak/)  
 
